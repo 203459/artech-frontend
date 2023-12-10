@@ -102,7 +102,7 @@ class _SignUpPageState extends State<SignUpPage> {
             child: Container(),
             flex: 2,
           ),
-          Center(child: SvgPicture.asset("assets/ic_instagram.svg", color: primaryColor,)),
+          Center(child: SvgPicture.asset("assets/ARTTECH.svg", color: primaryColor,)),
           sizeVer(15),
           Center(
             child: Stack(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 const backGroundColor = Colors.white;
-const backGroundColorBottom = Color(0xFFAA5EB7);
+const backGroundColorBottom = Colors.white;
 const blueColor = Color.fromRGBO(0, 149, 246, 1);
 const iconColor = Colors.white;
 const primaryColor = Colors.black;

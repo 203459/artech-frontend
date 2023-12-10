@@ -2,8 +2,8 @@
 class Assets {
   Assets._();
 
-  static const String assetsIcInstagram = 'assets/ic_instagram.svg';
-  static const String assetsInstagram = 'assets/instagram.png';
+  static const String assetsIcInstagram = 'assets/ARTTECH.svg';
+  static const String assetsInstagram = 'assets/logo_artech.png';
   static const String assetsProfileDefault = 'assets/profile_default.png';
 
 }

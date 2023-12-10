@@ -73,7 +73,7 @@ class _SignInPageState extends State<SignInPage> {
           ),
           Center(
               child: SvgPicture.asset(
-            "assets/ic_instagram.svg",
+            "assets/ARTTECH.svg",
             color: primaryColor,
           )),
           sizeVer(30),
