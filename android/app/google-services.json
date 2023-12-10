@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "191695749530",
+    "project_id": "arttech-7e221",
+    "storage_bucket": "arttech-7e221.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191695749530:android:df2cbd74d6de928b5dfa23",
+        "android_client_info": {
+          "package_name": "com.arttech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191695749530-mssgr2b85vgcdohgc5h9m45roiat094r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEv1NY91J5Ihf3vvtW1w-JX6KejhsnLfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191695749530-mssgr2b85vgcdohgc5h9m45roiat094r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
