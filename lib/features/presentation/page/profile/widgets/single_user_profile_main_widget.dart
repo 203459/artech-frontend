@@ -10,7 +10,7 @@ import 'package:proyecto_c2/features/presentation/cubit/post/post_cubit.dart';
 import 'package:proyecto_c2/features/presentation/cubit/user/get_single_other_user/get_single_other_user_cubit.dart';
 import 'package:proyecto_c2/features/presentation/cubit/user/get_single_user/get_single_user_cubit.dart';
 import 'package:proyecto_c2/features/presentation/cubit/user/user_cubit.dart';
-import 'package:proyecto_c2/features/post/presentation/widgets/button_container_widget.dart';
+import 'package:proyecto_c2/features/presentation/widgets/button_container_widget.dart';
 import 'package:proyecto_c2/profile_widget.dart';
 import 'package:proyecto_c2/injection_container.dart' as di;
 class SingleUserProfileMainWidget extends StatefulWidget {

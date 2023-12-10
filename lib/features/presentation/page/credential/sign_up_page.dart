@@ -10,8 +10,8 @@ import 'package:proyecto_c2/features/domain/entities/user/user_entity.dart';
 import 'package:proyecto_c2/features/presentation/cubit/auth/auth_cubit.dart';
 import 'package:proyecto_c2/features/presentation/cubit/credentail/credential_cubit.dart';
 import 'package:proyecto_c2/features/presentation/page/main_screen/main_screen.dart';
-import 'package:proyecto_c2/features/post/presentation/widgets/button_container_widget.dart';
-import 'package:proyecto_c2/features/post/presentation/widgets/form_container_widget.dart';
+import 'package:proyecto_c2/features/presentation/widgets/button_container_widget.dart';
+import 'package:proyecto_c2/features/presentation/widgets/form_container_widget.dart';
 import 'package:proyecto_c2/profile_widget.dart';
 import 'package:proyecto_c2/injection_container.dart' as di;
 class SignUpPage extends StatefulWidget {

@@ -5,7 +5,7 @@ import 'package:proyecto_c2/consts.dart';
 import 'package:proyecto_c2/features/domain/entities/replay/replay_entity.dart';
 import 'package:proyecto_c2/features/presentation/cubit/replay/replay_cubit.dart';
 import 'package:proyecto_c2/features/presentation/page/profile/widgets/profile_form_widget.dart';
-import 'package:proyecto_c2/features/post/presentation/widgets/button_container_widget.dart';
+import 'package:proyecto_c2/features/presentation/widgets/button_container_widget.dart';
 
 class EditReplayMainWidget extends StatefulWidget {
   final ReplayEntity replay;

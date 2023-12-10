@@ -5,8 +5,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:proyecto_c2/consts.dart';
 import 'package:proyecto_c2/features/presentation/cubit/credentail/credential_cubit.dart';
 import 'package:proyecto_c2/features/presentation/page/credential/sign_up_page.dart';
-import 'package:proyecto_c2/features/post/presentation/widgets/button_container_widget.dart';
-import 'package:proyecto_c2/features/post/presentation/widgets/form_container_widget.dart';
+import 'package:proyecto_c2/features/presentation/widgets/button_container_widget.dart';
+import 'package:proyecto_c2/features/presentation/widgets/form_container_widget.dart';
 
 import '../../cubit/auth/auth_cubit.dart';
 import '../main_screen/main_screen.dart';

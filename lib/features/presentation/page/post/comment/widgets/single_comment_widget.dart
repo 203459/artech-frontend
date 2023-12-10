@@ -8,7 +8,7 @@ import 'package:proyecto_c2/features/domain/entities/user/user_entity.dart';
 import 'package:proyecto_c2/features/domain/usecases/firebase_usecases/user/get_current_uid_usecase.dart';
 import 'package:proyecto_c2/features/presentation/cubit/replay/replay_cubit.dart';
 import 'package:proyecto_c2/features/presentation/page/post/comment/widgets/single_replay_widget.dart';
-import 'package:proyecto_c2/features/post/presentation/widgets/form_container_widget.dart';
+import 'package:proyecto_c2/features/presentation/widgets/form_container_widget.dart';
 import 'package:proyecto_c2/profile_widget.dart';
 import 'package:intl/intl.dart';
 import 'package:proyecto_c2/injection_container.dart' as di;
