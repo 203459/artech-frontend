@@ -91,7 +91,7 @@ class _SingleCommentWidgetState extends State<SingleCommentWidget> {
                                   : Icons.favorite_outline,
                               size: 20,
                               color: widget.comment.likes!.contains(_currentUid)
-                                  ? Colors.red
+                                  ? purpleColor
                                   : darkGreyColor,
                             ))
                       ],

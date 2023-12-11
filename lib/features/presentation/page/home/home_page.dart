@@ -19,20 +19,21 @@ class HomePage extends StatelessWidget {
       backgroundColor: backGroundColor,
       appBar: AppBar(
         backgroundColor: backGroundColor,
+        centerTitle: true,
         title: Text(
           'ARTTECH',
-          style: TextStyle(color: Color(0xFFAA5EB7)),
+          style: TextStyle(color: purpleColor, fontWeight: FontWeight.w900),
         ),
         actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 10.0),
-            child: Icon(
-              FeatherIcons.messageSquare,
-              color: primaryColor,
-            ),
-          )
+          Image.asset(
+            'assets/logo_artech.png',
+            height: 35, 
+            width: 35,
+          ),
+          sizeHor(15)
         ],
       ),
+      
       body: BlocProvider<PostCubit>(
         create: (context) => di.sl<PostCubit>()..getPosts(post: PostEntity()),
         child: BlocBuilder<PostCubit, PostState>(

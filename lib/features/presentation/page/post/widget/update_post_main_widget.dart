@@ -60,12 +60,19 @@ class _UpdatePostMainWidgetState extends State<UpdatePostMainWidget> {
     return Scaffold(
       backgroundColor: backGroundColor,
       appBar: AppBar(
-        backgroundColor: backGroundColor,
+        backgroundColor: purpleColor,
         title: Text("Editar publicación"),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          color: Colors.white, // Cambia el color según tus preferencias
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 10.0),
-            child: GestureDetector(onTap: _updatePost,child: Icon(Icons.done, color: blueColor, size: 28,)),
+            child: GestureDetector(onTap: _updatePost,child: Icon(Icons.done, color: Colors.white, size: 28,)),
           )
         ],
       ),
@@ -82,14 +89,14 @@ class _UpdatePostMainWidgetState extends State<UpdatePostMainWidget> {
                   child: profileWidget(imageUrl: widget.post.userProfileUrl),
                 ),
               ),
-              sizeVer(10),
+              sizeVer(15),
               Text("${widget.post.username}", style: TextStyle(color: primaryColor, fontSize: 16, fontWeight: FontWeight.bold),),
-              sizeVer(10),
+              sizeVer(15),
               Stack(
                 children: [
                   Container(
                     width: double.infinity,
-                    height: 200,
+                    height: MediaQuery.of(context).size.height * 0.43,
                     child: profileWidget(
                         imageUrl: widget.post.postImageUrl,
                         image: _image
@@ -107,7 +114,7 @@ class _UpdatePostMainWidgetState extends State<UpdatePostMainWidget> {
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(15)
                         ),
-                        child: Icon(Icons.edit, color: blueColor,),
+                        child: Icon(Icons.edit, color: purpleColor),
                       ),
                     ),
                   )

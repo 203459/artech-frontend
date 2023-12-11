@@ -141,7 +141,7 @@ class _SinglePostCardWidgetState extends State<SinglePostCardWidget> {
                                 ? Icons.favorite
                                 : Icons.favorite_outline,
                             color: widget.post.likes!.contains(_currentUid)
-                                ? Colors.red
+                                ? purpleColor
                                 : primaryColor,
                           )),
                       Text("${widget.post.totalLikes}")
@@ -151,17 +151,18 @@ class _SinglePostCardWidgetState extends State<SinglePostCardWidget> {
                   Column(
                     children: [
                       GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, PageConst.commentPage,
-                                arguments: AppEntity(
-                                    uid: _currentUid,
-                                    postId: widget.post.postId));
-                            //Navigator.push(context, MaterialPageRoute(builder: (context) => CommentPage()));
-                          },
-                          child: Icon(
-                            FeatherIcons.messageCircle,
-                            color: primaryColor,
-                          )),
+                        onTap: () {
+                          Navigator.pushNamed(context, PageConst.commentPage,
+                              arguments: AppEntity(
+                                  uid: _currentUid,
+                                  postId: widget.post.postId));
+                          //Navigator.push(context, MaterialPageRoute(builder: (context) => CommentPage()));
+                        },
+                        child: Icon(
+                          FeatherIcons.messageCircle,
+                          color: primaryColor,
+                        )
+                      ),
                       Text("${widget.post.totalComments}")
                     ],
                   ),
@@ -244,7 +245,7 @@ class _SinglePostCardWidgetState extends State<SinglePostCardWidget> {
                     Padding(
                       padding: const EdgeInsets.only(left: 10.0),
                       child: Text(
-                        "More Options",
+                        "Más opciones",
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
@@ -261,12 +262,18 @@ class _SinglePostCardWidgetState extends State<SinglePostCardWidget> {
                     SizedBox(
                       height: 8,
                     ),
+                    sizeVer(7),
                     Padding(
                       padding: const EdgeInsets.only(left: 10.0),
                       child: GestureDetector(
-                        onTap: _deletePost,
+                        onTap: () {
+                          Navigator.pushNamed(context, PageConst.updatePostPage,
+                              arguments: post);
+
+                          // Navigator.push(context, MaterialPageRoute(builder: (context) => UpdatePostPage()));
+                        },
                         child: Text(
-                          "Delete Post",
+                          "Editar publicación",
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 16,
@@ -283,14 +290,9 @@ class _SinglePostCardWidgetState extends State<SinglePostCardWidget> {
                     Padding(
                       padding: const EdgeInsets.only(left: 10.0),
                       child: GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, PageConst.updatePostPage,
-                              arguments: post);
-
-                          // Navigator.push(context, MaterialPageRoute(builder: (context) => UpdatePostPage()));
-                        },
+                        onTap: _deletePost,
                         child: Text(
-                          "Update Post",
+                          "Borrar publicación",
                           style: TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 16,

@@ -9,6 +9,7 @@ const primaryColor = Colors.black;
 const secondaryColor = Colors.grey;
 const darkGreyColor = Color.fromRGBO(97, 97, 97, 1);
 const purpleColor = Color(0xFFAA5EB7);
+final lightGreyColor = Color.fromRGBO(128, 128, 141, 1);
 
 Widget sizeVer(double height) {
   return SizedBox(

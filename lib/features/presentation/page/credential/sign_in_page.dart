@@ -21,6 +21,7 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  bool _isShowPassword = true;
 
   bool _isSigningIn = false;
 
@@ -61,9 +62,9 @@ class _SignInPageState extends State<SignInPage> {
         ));
   }
 
-  _bodyWidget() {
+  /*_bodyWidget() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 32),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -133,7 +134,10 @@ class _SignInPageState extends State<SignInPage> {
                 onTap: () {
                   Navigator.pushNamedAndRemoveUntil(
                       context, PageConst.signUpPage, (route) => false);
-                  // Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => SignUpPage()), (route) => false);
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignUpPage()),
+                      (route) => false);
                 },
                 child: Text(
                   "Sign Up.",
@@ -144,6 +148,220 @@ class _SignInPageState extends State<SignInPage> {
             ],
           )
         ],
+      ),
+    );
+  }*/
+
+  _bodyWidget() {
+    return SingleChildScrollView(
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 22, vertical: 32),
+        child: Column(
+          children: <Widget>[
+            SizedBox(
+              width: 292,
+              height: 60,
+            ),
+            Container(
+              child: Text(
+                'Inicio de sesión',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Color(0xFFAA5EB7),
+                  fontSize: 36,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w700,
+                  height: 0,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Divider(
+              thickness: 2,
+              endIndent: 15,
+              indent: 15,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 50,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                color: lightGreyColor.withOpacity(.2),
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+              child: TextField(
+                controller: _emailController,
+                decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.email,
+                    color: Colors.grey,
+                  ),
+                  hintText: 'Correo electrónico',
+                  hintStyle: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w400),
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Container(
+              height: 50,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                color: lightGreyColor.withOpacity(.2),
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+              child: TextField(
+                obscureText: _isShowPassword, 
+                controller: _passwordController,
+                decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.lock,
+                    color: Colors.grey,
+                  ),
+                  hintText: 'Contraseña',
+                  
+                  hintStyle: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w400),
+                  border: InputBorder.none,
+                  suffixIcon: InkWell(
+                    onTap: () {
+                      setState(() {
+                        _isShowPassword =
+                          _isShowPassword == false ? true : false;
+                      });
+                    },
+                    child: Icon(_isShowPassword == false
+                          ? Icons.remove_red_eye
+                          : Icons.panorama_fish_eye)
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: InkWell(
+                onTap: () {
+                  // Navigator.pushNamed(context, PageConst.forgotPage);
+                },
+                child: const Text(
+                  '¿Olvidaste tu contraseña?',
+                  style: TextStyle(
+                      color: Color(0xFFAA5EB7),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            InkWell(
+                onTap: () {
+                 _signInUser();
+                 _isSigningIn == true;
+                },
+                
+                child: Container(
+                  width: 250,
+                  height: 50,
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        left: 0,
+                        top: 0,
+                        child: Container(
+                          width: 250,
+                          height: 50,
+                          decoration: ShapeDecoration(
+                            color: Color(0xFFAA5EB7),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        left: 58.96,
+                        top: 13,
+                        child: SizedBox(
+                          width: 139.17,
+                          height: 25,
+                          child: Text(
+                            'Ingresar',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w700,
+                              height: 0,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                )),
+            SizedBox(
+              height: 40,
+            ),
+            Center(
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    const Text(
+                      "¿Aún no tienes cuenta?",
+                      style: TextStyle(
+                        color: Color(0xFF6F6F6F),
+                        fontSize: 16,
+                        fontFamily: 'Inter',
+                        fontWeight: FontWeight.w700,
+                        height: 0,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, PageConst.signUpPage, (route) => false);
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignUpPage()),
+                            (route) => false);
+                      },
+                      child: Text(
+                        'Crea una',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xFFAA5EB7),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

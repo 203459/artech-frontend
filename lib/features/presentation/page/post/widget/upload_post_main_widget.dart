@@ -57,12 +57,13 @@ class _UploadPostMainWidgetState extends State<UploadPostMainWidget> {
     return _image == null? _uploadPostWidget() : Scaffold(
       backgroundColor: backGroundColor,
       appBar: AppBar(
-        backgroundColor: backGroundColor,
+        backgroundColor: purpleColor,
+        title:  Text("Hacer una publicación"),
         leading: GestureDetector(onTap: () => setState(() => _image = null),child: Icon(Icons.close, size: 28,)),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: GestureDetector(onTap: _submitPost,child: Icon(Icons.arrow_forward, color:primaryColor,)),
+            child: GestureDetector(onTap: _submitPost,child: Icon(Icons.arrow_forward, color: Colors.white,)),
           )
         ],
       ),
@@ -70,6 +71,7 @@ class _UploadPostMainWidgetState extends State<UploadPostMainWidget> {
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: Column(
           children: [
+            sizeVer(20),
             Container(
               width: 80,
               height: 80,
@@ -77,10 +79,10 @@ class _UploadPostMainWidgetState extends State<UploadPostMainWidget> {
             ),
             sizeVer(10),
             Text("${widget.currentUser.username}", style: TextStyle(color: Colors.white),),
-            sizeVer(10),
+            sizeVer(20),
             Container(
               width: double.infinity,
-              height: 200,
+              height: MediaQuery.of(context).size.height * 0.43,
               child: profileWidget(image: _image),
             ),
             sizeVer(10),
@@ -136,24 +138,34 @@ class _UploadPostMainWidgetState extends State<UploadPostMainWidget> {
 
   _uploadPostWidget() {
     return Scaffold(
-        backgroundColor: backGroundColor,
-
-        body: Center(
-          child: GestureDetector(
-            onTap: selectImage,
-            child: Container(
-              width: 150,
-              height: 150,
-              decoration: BoxDecoration(
-                  color: secondaryColor.withOpacity(.3),
-                  shape: BoxShape.circle
-              ),
-              child: Center(
-                child: Icon(Icons.upload, color: primaryColor, size: 40,),
-              ),
-            ),
+    appBar: AppBar(
+      backgroundColor: purpleColor,
+      title: Text("Editar publicación"),
+      leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          color: Colors.white, // Cambia el color según tus preferencias
+        ),
+    ),
+    backgroundColor: Colors.white,
+    body: Center(
+      child: GestureDetector(
+        onTap: selectImage,
+        child: Container(
+          width: 150,
+          height: 150,
+          decoration: BoxDecoration(
+            color: secondaryColor.withOpacity(.3),
+            shape: BoxShape.circle,
           ),
-        )
-    );
+          child: Center(
+            child: Icon(Icons.upload, color: primaryColor, size: 40,),
+          ),
+        ),
+      ),
+    ),
+  );
   }
 }

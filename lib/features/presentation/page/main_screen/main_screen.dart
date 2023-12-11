@@ -59,13 +59,13 @@ class _MainScreenState extends State<MainScreen> {
           return Scaffold(
             backgroundColor: backGroundColor,
             bottomNavigationBar: Container(
-              height: 70.0,
+              height: 60.0,
               child: CupertinoTabBar(
                 backgroundColor: Color(0xFFAA5EB7),
                 items: [
                   _buildTabBarItem('assets/home_page_unpressed.svg', 'assets/home_page_pressed.svg', 0),
-                  _buildTabBarItem('assets/chat_page_unpressed.svg', 'assets/chat_page_pressed.svg', 1),
-                  _buildTabBarItem('assets/notification_page_unpressed.svg', 'assets/notification_page_pressed.svg', 2),
+                  _buildTabBarItem('assets/notification_page_unpressed.svg', 'assets/notification_page_pressed.svg', 1),
+                  _buildTabBarItem('assets/chat_page_unpressed.svg', 'assets/chat_page_pressed.svg', 2),
                   _buildTabBarItem('assets/profile_page_unpressed.svg', 'assets/profile_page_pressed.svg', 3),
                 ],
                 onTap: navigationTapped,
@@ -75,9 +75,8 @@ class _MainScreenState extends State<MainScreen> {
               controller: pageController,
               children: [
                 HomePage(),
-                SearchPage(),
-                //UploadPostPage(currentUser: currentUser),
                 ActivityPage(),
+                SearchPage(),
                 ProfilePage(
                   currentUser: currentUser,
                 ),
@@ -98,8 +97,8 @@ class _MainScreenState extends State<MainScreen> {
       icon: SvgPicture.asset(
         isSelected[index] ? pressedIconPath : normalIconPath,
         color: iconColor,
-        width: 25.0,
-        height: 27.0,
+        width: 20.0,
+        height: 18.0,
       )
     );
   }

@@ -13,6 +13,7 @@ import 'package:intl/intl.dart';
 import 'package:proyecto_c2/injection_container.dart' as di;
 
 class PostDetailMainWidget extends StatefulWidget {
+  
   final String postId;
   const PostDetailMainWidget({Key? key, required this.postId})
       : super(key: key);
@@ -42,8 +43,15 @@ class _PostDetailMainWidgetState extends State<PostDetailMainWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: backGroundColor,
-        title: Text("Post Detail"),
+        backgroundColor: purpleColor,
+        title: Text("Detalles de la publicación"),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          color: Colors.white, // Cambia el color según tus preferencias
+        ),
       ),
       backgroundColor: backGroundColor,
       body: BlocBuilder<GetSinglePostCubit, GetSinglePostState>(
@@ -107,9 +115,10 @@ class _PostDetailMainWidgetState extends State<PostDetailMainWidget> {
                       children: [
                         Container(
                           width: double.infinity,
-                          height: MediaQuery.of(context).size.height * 0.30,
-                          child: profileWidget(
-                              imageUrl: "${singlePost.postImageUrl}"),
+                          height: MediaQuery.of(context).size.height * 0.43,
+                            child: profileWidget(
+                              imageUrl: "${singlePost.postImageUrl}",
+                            ),
                         ),
                         AnimatedOpacity(
                           duration: Duration(milliseconds: 200),
@@ -133,45 +142,48 @@ class _PostDetailMainWidgetState extends State<PostDetailMainWidget> {
                   ),
                   sizeVer(10),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Row(
                         children: [
-                          GestureDetector(
-                              onTap: _likePost,
-                              child: Icon(
-                                singlePost.likes!.contains(_currentUid)
-                                    ? Icons.favorite
-                                    : Icons.favorite_outline,
-                                color: singlePost.likes!.contains(_currentUid)
-                                    ? Colors.purple
-                                    : purpleColor,
-                              )),
-                          sizeHor(10),
-                          GestureDetector(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, PageConst.commentPage,
-                                    arguments: AppEntity(
-                                        uid: _currentUid,
-                                        postId: singlePost.postId));
-                                //Navigator.push(context, MaterialPageRoute(builder: (context) => CommentPage()));
-                              },
-                              child: Icon(
-                                FeatherIcons.messageCircle,
-                                color: primaryColor,
-                              )),
-                          sizeHor(10),
-                          Icon(
-                            FeatherIcons.send,
-                            color: primaryColor,
+                          Column(
+                            children: [
+                              GestureDetector(
+                                onTap: _likePost,
+                                child: Icon(
+                                  singlePost.likes!.contains(_currentUid)
+                                      ? Icons.favorite
+                                      : Icons.favorite_outline,
+                                  color: singlePost.likes!.contains(_currentUid)
+                                      ? Colors.purple
+                                      : primaryColor,
+                                )
+                              ),
+                            ],
                           ),
+                          sizeHor(30),
+                          Column(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                      context, PageConst.commentPage,
+                                      arguments: AppEntity(
+                                          uid: _currentUid,
+                                          postId: singlePost.postId));
+                                  //Navigator.push(context, MaterialPageRoute(builder: (context) => CommentPage()));
+                                },
+                                child: Icon(
+                                  FeatherIcons.messageCircle,
+                                  color: primaryColor,
+                                )
+                              ),
+                            ],
+                          ),
+                          sizeHor(10),
                         ],
                       ),
-                      Icon(
-                        Icons.bookmark_border,
-                        color: primaryColor,
-                      )
+                      
                     ],
                   ),
                   sizeVer(10),

@@ -49,8 +49,16 @@ class _CommentMainWidgetState extends State<CommentMainWidget> {
     return Scaffold(
       backgroundColor: backGroundColor,
       appBar: AppBar(
-        backgroundColor: backGroundColor,
-        title: Text("Comentarioss"),
+        backgroundColor: purpleColor,
+        title: Text("Comentarios"),
+        leading: IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  color:
+                    Colors.white // Cambia el color según tus preferencias
+                ),
       ),
       body: BlocBuilder<GetSingleUserCubit, GetSingleUserState>(
         builder: (context, singleUserState) {
@@ -155,7 +163,7 @@ class _CommentMainWidgetState extends State<CommentMainWidget> {
     return Container(
       width: double.infinity,
       height: 55,
-      color: Colors.grey[800],
+      color: Color.fromARGB(255, 255, 255, 255),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: Row(
@@ -176,15 +184,16 @@ class _CommentMainWidgetState extends State<CommentMainWidget> {
                   decoration: InputDecoration(
                       border: InputBorder.none,
                       hintText: "Publica tu comentario...",
-                      hintStyle: TextStyle(color: secondaryColor)),
+                      hintStyle: TextStyle(color: primaryColor)),
+                      
                 )),
             GestureDetector(
                 onTap: () {
                   _createComment(currentUser);
                 },
                 child: Text(
-                  "Publicación",
-                  style: TextStyle(fontSize: 15, color: blueColor),
+                  "Publicar",
+                  style: TextStyle(fontSize: 15, color: purpleColor, fontWeight: FontWeight.bold),
                 ))
           ],
         ),
@@ -244,6 +253,32 @@ class _CommentMainWidgetState extends State<CommentMainWidget> {
                     SizedBox(
                       height: 8,
                     ),
+                    Divider(
+                      thickness: 1,
+                      color: secondaryColor,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.pushNamed(context, PageConst.updateCommentPage,
+                              arguments: comment);
+
+                          // Navigator.push(context, MaterialPageRoute(builder: (context) => UpdatePostPage()));
+                        },
+                        child: Text(
+                          "Editar comentario",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 16, color: primaryColor),
+                        ),
+                      ),
+                    ),
+                    sizeVer(7),
+                    Divider(
+                      thickness: 1,
+                      color: secondaryColor,
+                    ),
+                    sizeVer(7),
                     Padding(
                       padding: const EdgeInsets.only(left: 10.0),
                       child: GestureDetector(
@@ -261,23 +296,6 @@ class _CommentMainWidgetState extends State<CommentMainWidget> {
                     Divider(
                       thickness: 1,
                       color: secondaryColor,
-                    ),
-                    sizeVer(7),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10.0),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, PageConst.updateCommentPage,
-                              arguments: comment);
-
-                          // Navigator.push(context, MaterialPageRoute(builder: (context) => UpdatePostPage()));
-                        },
-                        child: Text(
-                          "Actualizar comentario",
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500, fontSize: 16, color: primaryColor),
-                        ),
-                      ),
                     ),
                     sizeVer(7),
                   ],

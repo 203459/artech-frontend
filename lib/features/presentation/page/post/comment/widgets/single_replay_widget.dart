@@ -66,7 +66,7 @@ class _SingleReplayWidgetState extends State<SingleReplayWidget> {
                                   : Icons.favorite_outline,
                               size: 20,
                               color: widget.replay.likes!.contains(_currentUid)
-                                  ? Colors.red
+                                  ? purpleColor
                                   : darkGreyColor,
                             ))                      ],
                     ),

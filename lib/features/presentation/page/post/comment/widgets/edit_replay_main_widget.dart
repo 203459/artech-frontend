@@ -31,21 +31,28 @@ class _EditReplayMainWidgetState extends State<EditReplayMainWidget> {
     return Scaffold(
       backgroundColor: backGroundColor,
       appBar: AppBar(
-        backgroundColor: backGroundColor,
+        backgroundColor: purpleColor,
         title: Text("Editar respuesta"),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          color: Colors.white, // Cambia el color según tus preferencias
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
         child: Column(
           children: [
             ProfileFormWidget(
-              title: "descripción",
+              title: "comentario:",
               controller: _descriptionController,
             ),
             sizeVer(10),
             ButtonContainerWidget(
-              color: blueColor,
-              text: "Guardar cambioss",
+              color: purpleColor,
+              text: "Guardar cambios",
               onTapListener: () {
                 _editReplay();
               },
